@@ -1,0 +1,8 @@
+For adding folder into path use:
+    addpath(folderName1,...,folderNameN)
+
+    Web: http://www.mathworks.com/help/matlab/ref/addpath.html
+
+
+About classes
+    http://www.mathworks.com/help/matlab/object-oriented-programming-in-matlab.html
