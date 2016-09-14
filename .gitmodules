@@ -1,0 +1,3 @@
+[submodule "utils/BodePlotGui"]
+	path = utils/BodePlotGui
+	url = ../BodePlotGui.git
