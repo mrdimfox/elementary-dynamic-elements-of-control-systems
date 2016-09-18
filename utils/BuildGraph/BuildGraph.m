@@ -1,10 +1,11 @@
-function [out_figure] = BuildGraph(Y1, labX, labY, Xlim, fig, lineStyle, marker)
+function [out_figure] = BuildGraph(Y1, labX, labY, XYlim, fig, lineStyle, marker)
 %BuildGraph(Y1, labX, labY, Xlim, fig, lineStyle, marker)
 %  Y1:          vector of y data
 %  labX:        label of X
 %  labY:        label of Y
-%  Xlim:        limit by X
-%  fig:         1 - строить новый график, 0 - строить поверх старого
+%  XYlim:       limit by X and Y
+%  fig:         1 - create new figure, 
+%               0 - use old figure
 %  lineStyle:   '-.' or '--' or '-' or ':'
 %  marker:      '*' or 'x' or 'o' or '.' ...
 
@@ -29,7 +30,10 @@ if fig == 1
         'Position',[0.1 0.15 0.855 0.770],...
         'FontSize',12);
     
-    xlim(axes1,[Xlim(1) Xlim(2)]);
+    xlim(axes1,[XYlim(1) XYlim(2)]);
+    if length(XYlim) > 2
+        ylim(axes1,[XYlim(3) XYlim(4)]);
+    end
     
     box(axes1,'on');
     hold(axes1,'all');
