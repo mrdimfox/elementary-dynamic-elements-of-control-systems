@@ -1,5 +1,6 @@
 addpath('../src/Helpers');
 addToPath('../utils/BuildGraph',...
+          '../utils/export_fig',...
           '../utils/arrow',...
           '../src/TFs models');
 
@@ -24,15 +25,18 @@ xCalc = max(y)/k;
 xTangent = [0 xCalc];
 yTangent = [0 max(y)];
 drawDashedLine(xTangent(1), yTangent(1), xTangent(2), yTangent(2));
-
+    
 % Sizes
 TsizeX = [0 xTangent(2)];
 drawHorSize(max(y), TsizeX(1), TsizeX(2), 20, 'T', [0 0.14]);
 drawVertSize(0.07, 0, max(y), 0, 'k', [0.001 0]);
+
+saveEps(stepFigure, 'step', '../plots/aperiodic1/');
+
  
 % Impulse response
 [y, t] = impulse(elems.aperiodic1.transFunc);
-BuildGraph(...
+impulseFigure = BuildGraph(...
     [t, y],...
     't, сек', '\omega(t)',...
     [0, max(t), 0, max(y)+100],...
@@ -52,3 +56,5 @@ drawDashedLine(xTangent(1), yTangent(1), xTangent(2), yTangent(2));
 TsizeX = [0 xTangent(2)];
 drawHorSize(0, TsizeX(1), TsizeX(2), 2000, 'T', [0 17]);
 drawVertSize(0.05, 0, max(y), 0, 'k/T', [0.001 0]);
+
+saveEps(impulseFigure, 'impulse', '../plots/aperiodic1/');
